@@ -37,48 +37,12 @@ namespace Academy
 				new Teacher("Diaz", "Ricardo", 50, "Weapons distribution", 20)
 			};
 
-			Print(group);
+			Streamer.Print(group);
 			//string filename = "group.txt";
-			save(group, "group.txt");
+			//Streamer.save(group, "group.txt");
+			Streamer.save(group, "group.csv");
 			//Load(filename);
 		}
-		static void Print(Human[] group)
-		{
-			for (int i = 0; i < group.Length; i++)
-			{
-				Console.WriteLine(group[i]);
-			}
-			Console.WriteLine();
-		}
-		static void save(Human[] group, string filename)
-		{
-			StreamWriter sw = new StreamWriter(filename);
-			for (int i = 0; i < group.Length; i++)
-			{
-				sw.WriteLine(group[i]/*.ToString()*/);
-			}
-			sw.Close();
-			Process.Start("notepad", filename);
-			Console.WriteLine();
-		}
-		static Human[] Load (string filename)
-		{
-			List<Human> group = new List<Human>();
-			try
-			{
-				StreamReader sr = new StreamReader("group.txt");
-				while (!sr.EndOfStream)
-				{
-					string buffer = sr.ReadLine();
-					Console.WriteLine(buffer);
-				}
-				sr.Close();
-			}
-			catch (Exception ex)
-			{
-				Console.WriteLine(ex.Message);
-			}
-			return group.ToArray();
-		}
+		
 	}
 }
