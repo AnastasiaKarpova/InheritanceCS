@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace Academy
 {
+	
 	internal class Graduate:Student
 	{
+		static readonly int SUBJECT_WIDTH = 20;
 		public string Subject {  get; set; }
 
 		public Graduate (string lastName, string firstName, int age,
@@ -28,7 +30,7 @@ namespace Academy
 		}
 		public override string ToString()
 		{
-			return base.ToString() + $" {Subject}";
+			return base.ToString() + $" {Subject.PadRight(SUBJECT_WIDTH)}";
 		}
 	}
 }

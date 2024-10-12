@@ -36,25 +36,29 @@ namespace Academy
 				new Student("Vercetti", "Tommy", 30, "Theft", "Vice", 95, 98),
 				new Teacher("Diaz", "Ricardo", 50, "Weapons distribution", 20)
 			};
-			//for (int i = 0; i < group.Length; i++)
-			//{
-			//	Console.WriteLine(group[i] + ";");
-			//}
-			//Console.WriteLine();
 
-			string filename = "group.txt";
-			//save(group, filename);
-			Load(filename);
+			Print(group);
+			//string filename = "group.txt";
+			save(group, "group.txt");
+			//Load(filename);
+		}
+		static void Print(Human[] group)
+		{
+			for (int i = 0; i < group.Length; i++)
+			{
+				Console.WriteLine(group[i]);
+			}
+			Console.WriteLine();
 		}
 		static void save(Human[] group, string filename)
 		{
-			StreamWriter sw = new StreamWriter("group.txt");
+			StreamWriter sw = new StreamWriter(filename);
 			for (int i = 0; i < group.Length; i++)
 			{
-				sw.WriteLine(group[i].ToString());
+				sw.WriteLine(group[i]/*.ToString()*/);
 			}
 			sw.Close();
-			Process.Start("notepad", "group.txt");
+			Process.Start("notepad", filename);
 			Console.WriteLine();
 		}
 		static Human[] Load (string filename)
