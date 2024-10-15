@@ -44,5 +44,14 @@ namespace Academy
 		{
 			return base.ToFileString()+$",{Speciality},{Group},{Rating},{Attendance}";
 		}
+		public override Human Init(string[] values)
+		{
+			base.Init(values);
+			Speciality = values[4];
+			Group = values[5];
+			Rating = Convert.ToInt32(values[6]);
+			Attendance = Convert.ToInt32(values[7]);
+			return this;
+		}
 	}
 }
