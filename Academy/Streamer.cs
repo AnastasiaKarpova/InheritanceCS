@@ -21,6 +21,7 @@ namespace Academy
 		internal static void save(Human[] group, string filename)
 		{
 			StreamWriter sw = new StreamWriter(filename);
+			sw.WriteLine("Sep=,");
 			for (int i = 0; i < group.Length; i++)
 			{
 				sw.WriteLine(group[i].ToFileString()/*.ToString()*/);
