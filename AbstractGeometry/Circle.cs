@@ -25,7 +25,7 @@ namespace AbstractGeometry
 		}
 		//public override double GetDiameter() => 2 * radius;
 		public override double GetArea() => Math.PI * radius * radius;
-		public override double GetPerimeter() => 2 * 3.14 * radius;
+		public override double GetPerimeter() => 2 * Math.PI * radius;
 		public override void Draw(PaintEventArgs e)
 		{
 			Pen pen = new Pen(Color, LineWidth);
