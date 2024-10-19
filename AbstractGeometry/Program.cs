@@ -28,10 +28,13 @@ namespace AbstractGeometry
 			Rectangle rectangle = new Rectangle(100, 50, 400, 100, 3, System.Drawing.Color.Red);
 			rectangle.Info(e);
 
-			Circle circle = new Circle(150, 500, 250, 3, System.Drawing.Color.Blue);
+			Circle circle = new Circle(75, 500, 150, 2, System.Drawing.Color.Blue);
 			circle.Info(e);
 
-			Square square = new Square(100, 550, 100, 3, System.Drawing.Color.Green);
+			//Square square = new Square(100, 550, 100, 3, System.Drawing.Color.Green);
+			//square.Info(e);
+
+			Square square = new Square(75, 512, 16, 1, Color.DarkBlue);
 			square.Info(e);
 
 			RightTriangle rTriangle = new RightTriangle(100, 200, 150, 500, 350, 3, System.Drawing.Color.Purple);

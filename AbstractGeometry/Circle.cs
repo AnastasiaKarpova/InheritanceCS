@@ -24,18 +24,21 @@ namespace AbstractGeometry
 			Radius = radius;
 		}
 		//public override double GetDiameter() => 2 * radius;
-		public override double GetArea() => Math.PI * radius * radius;
+		public override double GetArea() => /*Math.PI * radius * radius*/Math.PI * Math.Pow(Radius, 2);
 		public override double GetPerimeter() => 2 * Math.PI * radius;
 		public override void Draw(PaintEventArgs e)
 		{
 			Pen pen = new Pen(Color, LineWidth);
-			e.Graphics.DrawEllipse(pen, StartX, StartY, (int)Radius, (int)Radius);
+			//e.Graphics.DrawEllipse(pen, StartX, StartY, (int)Radius, (int)Radius);
+			e.Graphics.DrawEllipse(pen, StartX, StartY, 2*(float)Radius, 2* (float)Radius);
 		}
 		public override void Info(PaintEventArgs e)
 		{
-			Console.WriteLine("Круг");
-			Console.WriteLine($"Площадь фигуры: {GetArea()}");
-			Console.WriteLine($"Периметр фигуры: {GetPerimeter()}");
+			//Console.WriteLine("Круг");
+			Console.WriteLine(this.GetType());
+			Console.WriteLine($"Радиус круга: {Radius}");
+			//Console.WriteLine($"Площадь фигуры: {GetArea()}");
+			//Console.WriteLine($"Периметр фигуры: {GetPerimeter()}");
 			Console.WriteLine();
 			Draw(e);
 		}
