@@ -31,5 +31,13 @@ namespace AbstractGeometry
 			Pen pen = new Pen(Color, LineWidth);
 			e.Graphics.DrawEllipse(pen, StartX, StartY, (int)Radius, (int)Radius);
 		}
+		public override void Info(PaintEventArgs e)
+		{
+			Console.WriteLine("Круг");
+			Console.WriteLine($"Площадь фигуры: {GetArea()}");
+			Console.WriteLine($"Периметр фигуры: {GetPerimeter()}");
+			Console.WriteLine();
+			Draw(e);
+		}
 	}
 }
