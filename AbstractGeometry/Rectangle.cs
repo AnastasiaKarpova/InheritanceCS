@@ -29,7 +29,6 @@ namespace AbstractGeometry
 		{
 			Width = width;
 			Height = height;
-			
 		}
 
 		public override double GetArea() => Width * Height;

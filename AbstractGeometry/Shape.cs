@@ -73,11 +73,13 @@ namespace AbstractGeometry
 		public Color Color { get; set; }
 		public abstract double GetArea();
 		public abstract double GetPerimeter();
+		//public abstract double GetDiameter();	
 		public abstract void Draw(PaintEventArgs e);
 		public virtual void Info(PaintEventArgs e)
 		{
 			Console.WriteLine($"Площадь фигуры: {GetArea()}");
 			Console.WriteLine($"Периметр фигуры: {GetPerimeter()}");
+			Console.WriteLine();
 			Draw(e);
 		}
 	}
