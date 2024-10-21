@@ -5,11 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.AxHost;
 
 namespace AbstractGeometry
 {
-	internal class Triangle:Shape
+	internal class Triangle:Shape, IHaveEquilateral, IHaveIsosceles, IHaveRight
 	{
 		double sideA;
 		double sideB;
@@ -48,29 +47,79 @@ namespace AbstractGeometry
 		public override double GetPerimeter() => sideA + sideB + basis;
 		public override void Draw(PaintEventArgs e)
 		{
-			Pen pen = new Pen(Color, LineWidth);
-			Point[] verticesR =
-			{
-				new Point (StartX, StartY + (int)sideA),
-				new Point(StartX, StartY + (int)basis - (int)height),
-				new Point(StartX + (int)sideB, StartY + (int)sideA)
-			};
-			Point[] verticesE =
-			{
-				new Point (StartX, StartY + (int)sideA),
-				new Point(StartX + (int)sideA, StartY + (int)sideA),
-				new Point(StartX + (int)sideA/2, StartY + (int)sideA - (int)height)
-			};
-			Point[] verticesI =
-			{
-				new Point (StartX, StartY + (int)sideA),
-				new Point(StartX + (int)basis, StartY + (int)sideA),
-				new Point(StartX + (int)basis/2, StartY + (int)sideA - (int)height)
-			};
-			
-			e.Graphics.DrawPolygon(pen, verticesR);
-			
+			#region MyRegion
+			//Pen pen = new Pen(Color, LineWidth);
+			//Point[] verticesR =
+			//{
+			//	new Point (StartX, StartY + (int)sideA),
+			//	new Point(StartX, StartY + (int)basis - (int)height),
+			//	new Point(StartX + (int)sideB, StartY + (int)sideA)
+			//};
+			//Point[] verticesE =
+			//{
+			//	new Point (StartX, StartY + (int)sideA),
+			//	new Point(StartX + (int)sideA, StartY + (int)sideA),
+			//	new Point(StartX + (int)sideA/2, StartY + (int)sideA - (int)height)
+			//};
+			//Point[] verticesI =
+			//{
+			//	new Point (StartX, StartY + (int)sideA),
+			//	new Point(StartX + (int)basis, StartY + (int)sideA),
+			//	new Point(StartX + (int)basis/2, StartY + (int)sideA - (int)height)
+			//};
+
+			//e.Graphics.DrawPolygon(pen, verticesR); 
+			#endregion
+			DrawEquilateral(e);
+			DrawIsosceles(e);
+			DrawRight(e);
 		}
-		
+		public void DrawEquilateral(PaintEventArgs e)
+		{
+			#region MyRegion
+			//Point[] verticesE =
+			//{
+			//	new Point (StartX, StartY + (int)sideA),
+			//	new Point(StartX + (int)sideA, StartY + (int)sideA),
+			//	new Point(StartX + (int)sideA/2, StartY + (int)sideA - (int)height)
+			//}; 
+			#endregion
+			e.Graphics.DrawPolygon(new Pen(Color, 3), new Point[] { new Point(StartX, StartY + (int)sideA),
+			new Point(StartX + (int)sideA, StartY + (int)sideA), new Point(StartX + (int)sideA/2, StartY + (int)sideA - (int)height)});
+		}
+		public void DrawIsosceles(PaintEventArgs e)
+		{
+			#region MyRegion
+			//Point[] verticesI =
+			//{
+			//	new Point (StartX, StartY + (int)sideA),
+			//	new Point(StartX + (int)basis, StartY + (int)sideA),
+			//	new Point(StartX + (int)basis/2, StartY + (int)sideA - (int)height)
+			//}; 
+			#endregion
+			e.Graphics.DrawPolygon(new Pen(Color, 1), new Point[] { new Point(StartX, StartY + (int)sideA),
+			new Point(StartX + (int)basis, StartY + (int)sideA), new Point(StartX + (int)basis/2, StartY + (int)sideA - (int)height)});
+		}
+		public void DrawRight(PaintEventArgs e)
+		{
+			#region MyRegion
+			//Point[] verticesR =
+			//{
+			//	new Point (StartX, StartY + (int)sideA),
+			//	new Point(StartX, StartY + (int)basis - (int)height),
+			//	new Point(StartX + (int)sideB, StartY + (int)sideA)
+			//}; 
+			#endregion
+			e.Graphics.DrawPolygon(new Pen(Color, 2), new Point[] { new Point(StartX, StartY + (int)sideA),
+			new Point(StartX, StartY + (int)basis - (int)height), new Point(StartX + (int)sideB, StartY + (int)sideA)});
+		}
+		public override void Info(PaintEventArgs e)
+		{
+			Console.WriteLine(this.GetType());
+			Console.WriteLine($"Площадь треугольника: {GetArea()}");
+			Console.WriteLine($"Периметр треугольника: {GetPerimeter()}");
+			Console.WriteLine();
+			Draw(e);
+		}
 	}
 }

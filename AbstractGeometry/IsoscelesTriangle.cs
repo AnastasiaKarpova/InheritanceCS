@@ -13,13 +13,13 @@ namespace AbstractGeometry
 			int startX, int startY, int lineWidth, System.Drawing.Color color)
 			: base(height, sideA, sideA, basis, startX, startY, lineWidth, color)
 		{ }
-		public override void Info(PaintEventArgs e)
-		{
-			Console.WriteLine("Равнобедренный треугольник");
-			Console.WriteLine($"Площадь фигуры: {GetArea()}");
-			Console.WriteLine($"Периметр фигуры: {GetPerimeter()}");
-			Console.WriteLine();
-			Draw(e);
-		}
+		//public override void Info(PaintEventArgs e)
+		//{
+		//	Console.WriteLine("Равнобедренный треугольник");
+		//	Console.WriteLine($"Площадь фигуры: {GetArea()}");
+		//	Console.WriteLine($"Периметр фигуры: {GetPerimeter()}");
+		//	Console.WriteLine();
+		//	Draw(e);
+		//}
 	}
 }
