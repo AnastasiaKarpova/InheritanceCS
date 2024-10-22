@@ -49,9 +49,6 @@
     <Compile Include="EquilateralTriangle.cs" />
     <Compile Include="IHaveDiagonal.cs" />
     <Compile Include="IHaveDiameter.cs" />
-    <Compile Include="IHaveEquilateral.cs" />
-    <Compile Include="IHaveIsosceles.cs" />
-    <Compile Include="IHaveRight.cs" />
     <Compile Include="IsoscelesTriangle.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
